@@ -1,0 +1,26 @@
+
+<%- include("partials/header"); -%>
+
+<div class="container-fluid pt-4">
+  <h1><b>Donation history</b></h1>
+  <p></p>
+</div>  
+
+
+<%  donates.forEach(function(donate){ %>
+
+  <div class="container-fluid text-left text-black p-3">
+    <div class="card bg-warning">
+      <div class="card-body">
+        <p class="fs-3"><%=donate.FullName%>, <span class="fs-4"><%=donate.Dcity%> (<%=donate.Dzip%>) </span> </p>
+        <p class="fs-5"><b>Item Name: </b> <%=donate.DItem%>, <span class="fs-5"> <b>Phone no. </b> <%=donate.Dphone%></span> </p>
+        <p class="fs-5"><b>Pick-up Address: </b>  <%=donate.Daddress%></p>
+        
+      </div>
+    </div>
+  </div>
+
+  <% }) %>
+
+
+<%- include("partials/footer"); -%>

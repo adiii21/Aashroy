@@ -1,0 +1,27 @@
+
+<%- include("partials/header"); -%>
+
+<div class="container-fluid pt-4">
+  <h1><b>Crime Reports</b></h1>
+  <p></p>
+</div>  
+
+
+<%  crimes.forEach(function(crime){ %>
+
+  <div class="container-fluid text-left text-black p-3">
+    <div class="card bg-danger">
+      <div class="card-body">
+        <p class="fs-3"><%=crime.Coption%>, <span class="fs-4"> <%=crime.Ccity%>, <%=crime.Czip%>  </span> </p>
+        <p class="fs-5"><b>Land-Mark: </b>  <%=crime.Clocation%>, <span class="fs-4"> <%=crime.Ccity%> </span> </p>
+        <p class="fs-5"><b>Incident Details:</b>  <%=crime.Ccontent%> </p>
+        
+      </div>
+    </div>
+  </div>
+
+
+  <% }) %>
+
+
+<%- include("partials/footer"); -%>

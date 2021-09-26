@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ASSHROY</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather+Sans&display=swap" rel="stylesheet">    
+
+
+
+    <link rel="stylesheet" href="/css/styles.css">
+    
+
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+    <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v2.4.1/mapbox-gl.js'></script>
+    <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v2.4.1/mapbox-gl.css' rel='stylesheet' />
+
+
+    <style>
+      .bd-placeholder-img {
+      font-size: 1.125rem;
+      text-anchor: middle;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      user-select: none;
+    }
+
+    @media (min-width: 768px) {
+      .bd-placeholder-img-lg {
+        font-size: 3.5rem;
+      }
+    }
+    #map {
+
+        top: 0;
+        bottom: 0;
+        width: 100%;
+        height: 600px;
+      }
+
+      .marker {
+        background-image: url('/images/mapbox-icon.png');
+        background-size: cover;
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        cursor: pointer;
+      }  
+
+      .mapboxgl-popup {
+        max-width: 200px;
+      }
+
+      .mapboxgl-popup-content {
+        text-align: center;
+        font-family: 'Open Sans', sans-serif;
+      }
+  </style>
+
+</head>
+<body>
+
+  <header>
+    <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-black">
+      <div class="container-xl">
+        <a class="navbar-brand" style="color: #0a7753;" href="/index">AASHROY</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+          <ul class="navbar-nav ms-auto mb-2 mb-md-0 ">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="/home">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/about">About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/contact">Contact</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+</header>
+
+<main>
+  <div class="container pt-5 mx-auto" style="justify-content: center; display: flex;">
+    <div id='map'></div> </div>  
+
+    <p><a class="btn btn-outline-success btn-lg mt-5" href="/home">Back</a></p>
+
+
+    <script>
+      mapboxgl.accessToken = 'pk.eyJ1IjoiYWRpaTIxIiwiYSI6ImNrcTdzOXZkZDA5NDQydm9hb2dpcmZ1NHYifQ.EIom6Vgm_x9TOcuKk38GGw';
+       
+      const geojson = {
+      'type': 'FeatureCollection',
+      'features': [
+      {
+      'type': 'Feature',
+      'geometry': {
+      'type': 'Point',
+      'coordinates': [95.346771, 27.492191]
+      },
+      'properties': {
+      'title': 'Mapbox',
+      'description': 'Tinsukia'
+      }
+      },
+      {
+      'type': 'Feature',
+      'geometry': {
+      'type': 'Point',
+      'coordinates': [94.911964, 27.472834]
+      },
+      'properties': {
+      'title': 'Mapbox',
+      'description': 'Dibrugarh'
+      }
+      },
+
+      {
+      'type': 'Feature',
+      'geometry': {
+      'type': 'Point',
+      'coordinates': [94.659340, 26.970050]
+      },
+      'properties': {
+      'title': 'Mapbox',
+      'description': 'Shivasagar'
+      }
+      },
+
+      {
+      'type': 'Feature',
+      'geometry': {
+      'type': 'Point',
+      'coordinates': [91.736237, 26.144518]
+      },
+      'properties': {
+      'title': 'Mapbox',
+      'description': 'Guwahati'
+      }
+      },
+
+      { 
+      'type': 'Feature',
+      'geometry': {
+      'type': 'Point',
+      'coordinates': [92.827590, 26.354390]
+      },
+      'properties': {
+      'title': 'Mapbox',
+      'description': 'Kaziranga'
+      }
+      },
+
+      { 
+      'type': 'Feature',
+      'geometry': {
+      'type': 'Point',
+      'coordinates': [92.772453, 26.655041]
+      },
+      'properties': {
+      'title': 'Mapbox',
+      'description': 'Tezpur'
+      }
+      },
+
+      { 
+      'type': 'Feature',
+      'geometry': {
+      'type': 'Point',
+      'coordinates': [93.767883, 26.836960]
+      },
+      'properties': {
+      'title': 'Mapbox',
+      'description': 'Majuli'
+      }
+      },
+
+      { 
+      'type': 'Feature',
+      'geometry': {
+      'type': 'Point',
+      'coordinates': [93.014603, 25.174000]
+      },
+      'properties': {
+      'title': 'Mapbox',
+      'description': 'Haflong'
+      }
+      },
+
+      { 
+      'type': 'Feature',
+      'geometry': {
+      'type': 'Point',
+      'coordinates': [92.776471, 24.833865]
+      },
+      'properties': {
+      'title': 'Mapbox',
+      'description': 'Silchar'
+      }
+      },
+
+     { 
+      'type': 'Feature',
+      'geometry': {
+      'type': 'Point',
+      'coordinates': [92.681519, 26.348258]
+      },
+      'properties': {
+      'title': 'Mapbox',
+      'description': 'Nagaon'
+      }
+      },
+  
+      
+     { 
+      'type': 'Feature',
+      'geometry': {
+      'type': 'Point',
+      'coordinates': [90.5580, 26.4800]
+      },
+      'properties': {
+      'title': 'Mapbox',
+      'description': 'Bongaigaon'
+      }
+      },
+
+      { 
+      'type': 'Feature',
+      'geometry': {
+      'type': 'Point',
+      'coordinates': [94.104599, 27.235901]
+      },
+      'properties': {
+      'title': 'Mapbox',
+      'description': 'Lakhimpur'
+      }
+      },
+
+      { 
+      'type': 'Feature',
+      'geometry': {
+      'type': 'Point',
+      'coordinates': [92.0366, 26.4377]
+      },
+      'properties': {
+      'title': 'Mapbox',
+      'description': 'Mangaldai'
+      }
+      },
+
+      { 
+      'type': 'Feature',
+      'geometry': {
+      'type': 'Point',
+      'coordinates': [93.4650, 25.8563]
+      },
+      'properties': {
+      'title': 'Mapbox',
+      'description': 'Diphu'
+      }
+      },
+
+      { 
+      'type': 'Feature',
+      'geometry': {
+      'type': 'Point',
+      'coordinates': [91.4512, 26.4239]
+      },
+      'properties': {
+      'title': 'Mapbox',
+      'description': 'Nalbari'
+      }
+      },
+
+      { 
+      'type': 'Feature',
+      'geometry': {
+      'type': 'Point',
+      'coordinates': [94.7183, 26.8622]
+      },
+      'properties': {
+      'title': 'Mapbox',
+      'description': 'Naziara'
+      }
+      },
+      
+      { 
+      'type': 'Feature',
+      'geometry': {
+      'type': 'Point',
+      'coordinates': [92.8488, 26.0094]
+      },
+      'properties': {
+      'title': 'Mapbox',
+      'description': 'Hojai'
+      }
+      },
+
+
+
+      ]
+      };
+       
+      const map = new mapboxgl.Map({
+      container: 'map',
+      style: 'mapbox://styles/mapbox/light-v10',
+      center: [92.937576, 26.200603],
+      zoom: 6
+      });
+       
+      // add markers to map
+      for (const { geometry, properties } of geojson.features) {
+      // create a HTML element for each feature
+      const el = document.createElement('div');
+      el.className = 'marker';
+       
+      // make a marker for each feature and add it to the map
+      new mapboxgl.Marker(el)
+      .setLngLat(geometry.coordinates)
+      .setPopup(
+      new mapboxgl.Popup({ offset: 25 }) // add popups
+      .setHTML(
+      `<h3>${properties.title}</h3><p>${properties.description}</p>`
+      )
+      )
+      .addTo(map);
+      }
+      </script>
+    
+
+    
+
+<%- include("partials/footer"); -%>
+    
+
+

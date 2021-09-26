@@ -1,0 +1,114 @@
+
+<%- include("partials/header"); -%>
+
+
+
+
+
+<div class="container pt-5">
+  <h1><b>Report a crime</b> </h1>
+</div>  
+
+<div class="container " style="justify-content: center; display: flex;  padding: 0px 0px;">
+    <div class="card w-75  text-light bg-danger">
+        <div class="card-body p-5">
+            <form class="row g-3 needs-validation" action="/crime" method="post" novalidate novalidate>
+
+                <div class="form-row">
+                    <div class="col-md-4 mb-3">
+                        <label for="validationTooltip01">City</label>
+                        <input type="text" name="crimeCity" class="form-control" id="validationTooltip01" value="" required>
+                        <div class="valid-tooltip">
+                            Looks good!
+                        </div>
+                    </div>                    
+                    <div class="col-md-4 mb-3">
+                            <label for="validationTooltip01">State</label>
+                            <input type="text" name="crimeState" class="form-control" id="validationTooltip01" value="" required>
+                            <div class="valid-tooltip">
+                                Looks good!
+                            </div>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <label for="validationTooltip01">Zip code</label>
+                        <input type="text" name="crimeZip" class="form-control" id="validationTooltip01" value="" required>
+                        <div class="valid-tooltip">
+                            Looks good!
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="col-md-3 mb-3 pt-5">
+                        <div class="custom-control custom-radio text-left">
+                            <input type="radio" id="customRadio1" name="crimeRadio" class="custom-control-input" required>
+                            <label class="custom-control-label" for="customRadio1">Confirm you are 18+</label>
+                            <div class="invalid-feedback text-warning">
+                                Cannot proceed if you are not 18+.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-5 mb-3">
+                        <label for="validationCustom04" class="form-label">Crime report on</label>
+                        <select name="crimeOption" class="form-select" id="validationCustom04" required>
+                          <option selected disabled value="">Choose...</option>
+                          <option>Robbery</option>
+                          <option>Child Labour</option>
+                          <option>Human trafficking</option>
+                          <option>Drug Abuse</option>
+                          <option>Stalking</option>
+                          <option>Others</option>
+                        </select>
+                        <div class="invalid-feedback">
+                          Please select a valid state.
+                        </div>
+                    </div>
+
+                    <div class="col-md-4 mb-3">
+                        <label for="validationTooltip01">Land Mark of the incident</label>
+                        <input type="text" name="crimeLocation" class="form-control" id="validationTooltip01" value="" required>
+                        <div class="valid-tooltip">
+                            Looks good!
+                        </div>
+                    </div>
+                </div>
+
+                <label for="validationCustom01" class="form-label">Write the complete incident. </label>
+                <textarea class="form-control" name="crimeContent" rows="5" cols="30"></textarea>
+
+
+                <div class="col-12">
+                    <button class="btn btn-light" type="submit">Submit Report</button>
+                  </div>
+            </form>
+        </div>
+    </div>
+</div>
+  
+
+<script>
+
+(() => {
+'use strict';
+
+
+const forms = document.querySelectorAll('.needs-validation');
+
+
+Array.prototype.slice.call(forms).forEach((form) => {
+  form.addEventListener('submit', (event) => {
+    if (!form.checkValidity()) {
+      event.preventDefault();
+      event.stopPropagation();
+    }
+    form.classList.add('was-validated');
+  }, false);
+});
+})();
+</script>
+
+
+<%- include("partials/footer"); -%>
+
+
+

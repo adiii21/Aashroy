@@ -1,0 +1,37 @@
+
+<%- include("partials/header"); -%>
+
+  <div class="container-fluid pt-4">
+    <h1>Registered People List</h1>
+    <p></p>
+  </div>  
+
+
+  <%  posts.forEach(function(post){ %>
+
+  <div class="container-fluid text-left text-black">
+    <div class="card bg-light">
+      <div class="card-body">
+        <div class="row">
+          <div class="col-10">
+            <h2><%=post.FName%> <%=post.LName%></h2>
+            <h3 class="fs-6"><b>Gender:</b> <%=post.Gender%> <b class="pl-3">City:</b> <%=post.City%>
+              <b class="pl-3">State:</b> <%=post.State%> <b class="pl-3">Zip:</b> <%=post.Zip%> <b class="pl-3">Address:</b> <%=post.Address%>
+            </h3>
+            <p> <b>Need Help In:</b><%=post.content.substring(0, 100) + " ..."%></p>
+          </div>
+          <div class="col-2">
+            <p><a class="btn btn-outline-success  mt-3" href="/posts/<%=post._id%>">Read More</a></p>
+            <p><a class="btn btn-outline-success " href="/map">Locate Map</a></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <br><br>
+
+
+    <% }) %>
+
+
+<%- include("partials/footer"); -%>

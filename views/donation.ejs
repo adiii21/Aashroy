@@ -1,0 +1,105 @@
+
+<%- include("partials/header"); -%>
+
+
+
+
+
+<div class="container pt-5">
+  <h1><b>WELCOME TO DONATION FORM</b> </h1>
+</div>  
+
+<div class="container " style="justify-content: center; display: flex;  padding: 0px 0px;">
+    <div class="card w-75  text-light bg-warning">
+        <div class="card-body p-5">
+            <form class="row g-3 needs-validation" action="/donation" method="post" novalidate novalidate>
+                <div class="form-row">
+                    <div class="col-md-6 mb-3">
+                    <label for="validationTooltip01">Full name</label>
+                    <input type="text" name="fullname" class="form-control" id="validationTooltip01" value="" required>
+                    <div class="valid-tooltip">
+                        Looks good!
+                    </div>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                    <label for="validationTooltip02">City</label>
+                    <input type="text" name="donateCity" class="form-control" id="validationTooltip02" value="" required>
+                    <div class="valid-tooltip">
+                        Looks good!
+                    </div>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="col-md-4 mb-3">
+                        <label for="validationTooltip01">Zip Code</label>
+                        <input type="text" name="donateZip" class="form-control" id="validationTooltip01" value="" required>
+                        <div class="valid-tooltip">
+                            Looks good!
+                        </div>
+                    </div>                    
+                    <div class="col-md-4 mb-3">
+                        <label for="validationCustom04" class="form-label">What you want to donate?</label>
+                        <select name="donateOption" class="form-select" id="validationCustom04" required>
+                          <option selected disabled value="">Choose...</option>
+                          <option>Money</option>
+                          <option>Clothes</option>
+                          <option>Food</option>
+                          <option>Others</option>
+                        </select>
+                        <div class="invalid-feedback">
+                          Please select a valid option.
+                        </div>
+                      </div>
+                    <div class="col-md-4 mb-3">
+                        <label for="validationTooltip01">Phone Number</label>
+                        <input type="text" name="donatePhone" class="form-control" id="validationTooltip01" value="" required>
+                        <div class="valid-tooltip">
+                            Looks good!
+                        </div>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="col-md-12 mb-3">
+                    <label for="validationTooltip01">Enter the pickup location</label>
+                    <input type="text" name="donateAddress" class="form-control" id="validationTooltip01" value="" required>
+                    <div class="valid-tooltip">
+                        Looks good!
+                    </div>
+                    </div>
+                </div>
+
+                <div class="col-12">
+                    <button class="btn btn-light" type="submit">Confirm Donation</button>
+                  </div>
+            </form>
+        </div>
+    </div>
+</div>
+  
+
+<script>
+
+(() => {
+'use strict';
+
+
+const forms = document.querySelectorAll('.needs-validation');
+
+
+Array.prototype.slice.call(forms).forEach((form) => {
+  form.addEventListener('submit', (event) => {
+    if (!form.checkValidity()) {
+      event.preventDefault();
+      event.stopPropagation();
+    }
+    form.classList.add('was-validated');
+  }, false);
+});
+})();
+</script>
+
+
+<%- include("partials/footer"); -%>
+
+
+
